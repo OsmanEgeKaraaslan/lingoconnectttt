@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    finished_quizzes = models.ManyToManyField('Quiz', blank=True,default=0)
+    finished_quizzes = models.ManyToManyField('Quiz', blank=True, default=None)
     total_score = models.IntegerField(default=0)
     correct_answers = models.IntegerField(default=0)
     false_answers = models.IntegerField(default=0)
@@ -19,13 +19,12 @@ class UserProfile(models.Model):
     def update_false_answers(self, num_correct):
         self.false_answers += 10-num_correct
         self.save()
-    def calculate_percentage(self, total_questions):
-     if total_questions > 0:
 
-        self.percentage = (self.correct_answers / total_questions) * 100
-        self.save()
-    def __str__(self):
-        return self.user.username
+    def calculate_percentage(self):
+      x = self.correct_answers
+      y = self.false_answers
+      self.percentage = x / (x + y) * 100
+      self.save()
 
 
     def create_user_profile(sender, instance, created,**kwargs):

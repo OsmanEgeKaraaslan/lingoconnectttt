@@ -7,7 +7,7 @@ urlpatterns = [
     path("Quiz/<int:quiz_id>/",views.quiz,name="Quiz"),
     path('submit-quiz/<int:quiz_id>/',views.submit_quiz,name='submit_quiz'),
     path('register/', views.register, name='register'),
-    path('accounts/profile/', views.profile_view, name='profile'),
+    path('accounts/profile/', views.user_profile, name='profile'),
     path('login/', LoginView.as_view(template_name='registration/login.html'), name='login'),
 
 ]

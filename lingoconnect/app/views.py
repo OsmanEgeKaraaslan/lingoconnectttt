@@ -151,9 +151,14 @@ def submit_quiz(request, quiz_id):
             fail+=1
 
     score=10-fail
-    UserProfile.finished_quizzes.add(quiz)
+    user_profile = request.user.userprofile
+    user_profile.finished_quizzes.add(quiz)
+
     x=10-fail
-    UserProfile.update_correct_answers(num_correct=x)
+
+    user_profile.update_correct_answers(num_correct=x)
+    user_profile.update_false_answers(num_correct=x)
+    user_profile.calculate_percentage()
     return render(request, 'submit_quiz.html', {'quiz': quiz,"score":score})
 def register(request):
     global form
@@ -180,6 +185,16 @@ def register(request):
 
 
 @login_required
-def profile_view(request):
-    # Your profile view logic goes here
-    return render(request, 'user_profile.html')
+def user_profile(request):
+    current_user = request.user
+    profile_instance = UserProfile.objects.get(user=current_user)
+
+    # Retrieve information about completed quizzes
+    completed_quizzes = profile_instance.finished_quizzes.all()
+
+    context = {
+        'user_profile': profile_instance,
+        'completed_quizzes': completed_quizzes,
+    }
+
+    return render(request, 'user_profile.html', context)

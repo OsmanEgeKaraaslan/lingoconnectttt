@@ -1,19 +1,16 @@
 
 
 {% block content %}
-    <h2>User Profile</h2>
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
+  <h2>User Profile</h2>
+  <p><strong>Username:</strong> {{ user_profile.user.username }}</p>
 
-    <h3>Completed Quizzes</h3>
-    <ul>
-        {% for quiz in user.completed_quizzes %}
-            <li>{{ quiz.title }}</li>
-        {% endfor %}
-    </ul>
+  <p><strong>Correct Answers:</strong> {{ user_profile.correct_answers }}</p>
+  <p><strong>False Answers:</strong> {{ user_profile.false_answers }}</p>
 
-    <h3>Overall Statistics</h3>
-
-
-    <p><strong>Number of Correct Answers:</strong> {{ user.correct_answers }}</p>
+  <h3>Completed Quizzes</h3>
+  <ul>
+    {% for quiz in completed_quizzes %}
+      <li>{{ quiz.name }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}
