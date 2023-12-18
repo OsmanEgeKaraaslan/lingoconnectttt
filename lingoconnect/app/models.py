@@ -1,25 +1,59 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    finished_quizzes = models.ManyToManyField('Quiz', blank=True,default=0)
+    total_score = models.IntegerField(default=0)
+    correct_answers = models.IntegerField(default=0)
+    false_answers = models.IntegerField(default=0)
+    Percentage = models.IntegerField(default=0)
+    def update_score(self, score):
+        self.total_score += score
+        self.save()
 
-# Create your models here.
-class user(models.Model):
-    quizlist=models.TextField(null=True)
-    username=models.CharField(max_length=30)
-    password=models.CharField(max_length=50)
-    succesrate=models.IntegerField(null=True)
+    def update_correct_answers(self, num_correct):
+        self.correct_answers += num_correct
+        self.save()
+    def update_false_answers(self, num_correct):
+        self.false_answers += 10-num_correct
+        self.save()
+    def calculate_percentage(self, total_questions):
+     if total_questions > 0:
+
+        self.percentage = (self.correct_answers / total_questions) * 100
+        self.save()
+    def __str__(self):
+        return self.user.username
+
+
+    def create_user_profile(sender, instance, created,**kwargs):
+       if created:
+        user_profile=UserProfile(user=instance)
+        user_profile.save()
+    post_save.connect(create_user_profile,sender=user)
+
+
+
+
+
+
+
     objects = models.Manager()
 class question(models.Model):
-    text=models.CharField(max_length=100)
-    correct_answer=models.CharField(max_length=15)
-    option1=models.CharField(max_length=15,null=True)
-    option2=models.CharField(max_length=15,null=True)
-    option3=models.CharField(max_length=15,null=True)
-    option4=models.CharField(max_length=15,null=True)
+    text=models.CharField(max_length=10000)
+    correct_answer=models.CharField(max_length=10000)
+    option1=models.CharField(max_length=10000,null=True)
+    option2=models.CharField(max_length=10000,null=True)
+    option3=models.CharField(max_length=10000,null=True)
+    option4=models.CharField(max_length=10000,null=True)
     number_of_fails=models.IntegerField(null=True)
     number_of_passes=models.IntegerField(null=True)
     total_number=models.IntegerField(null=True)
-    category=models.CharField(max_length=15)
-    difficulty=models.CharField(max_length=15)
-    text1=models.CharField(max_length=200)
+    category=models.CharField(max_length=1500)
+    difficulty=models.CharField(max_length=1500)
+
     fail_percent=models.IntegerField(null=True)
     objects = models.Manager()
 class Quiz(models.Model):
