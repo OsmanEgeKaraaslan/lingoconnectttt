@@ -1,4 +1,18 @@
-{% extends 'home.html' %}
+
+<html>
+<style>
+    body {
+        background-color: darkkhaki;
+    }
+    footer {
+        margin-top: 280px;
+    }
+</style>
+  {% load static %}
+    <img src="{% static 'logo.png' %}" alt="LingoConnect" width="300" height="200">
+
+
+</html>
 {% block content %}
     <h2>Login</h2>
     <form method="post" action="{% url 'login' %}">
@@ -7,3 +21,8 @@
         <button type="submit">Login</button>
     </form>
 {% endblock %}
+
+  <footer>
+    <p id="footer1">LingoConnect Team</p>
+    <p id="footer2">Acıbadem Üniversitesi - İçerenköy, Kayışdağı Cd. No:32, 34752 Ataşehir/İstanbul</p>
+</footer>

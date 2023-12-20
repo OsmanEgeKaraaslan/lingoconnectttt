@@ -3,17 +3,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quizes</title>
+    <title>Quizzes</title>
+
+    <style>
+        body {
+            background-color: bisque;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #quiz-list {
+            padding: 0;
+            margin: 20px;
+        }
+
+        #quiz-list li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 350px;
+            color:chocolate;
+        }
+
+
+    </style>
+
+<!--       {% load static %}-->
+<!--    <img src="{% static 'logo.png' %}" alt="LingoConnect" width="300" height="200">-->
+
 </head>
 <body>
 {% block content %}
 
+<ul id="quiz-list">
 {%for quiz in quizlist%}
-
-<li><a href="{%url 'Quiz' quiz.id%}"> {{quiz.name}}  </a>></li>
-
+<li><a href="{%url 'Quiz' quiz.id%}"> {{quiz.name}} </a>></li>
 {% endfor %}
-
+</ul>
 {% endblock %}
+
 </body>
+
+<footer>
+    <p id="footer1">LingoConnect Team</p>
+    <p id="footer2">Acıbadem Üniversitesi - İçerenköy, Kayışdağı Cd. No:32, 34752 Ataşehir/İstanbul</p>
+</footer>
 </html>
