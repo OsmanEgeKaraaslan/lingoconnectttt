@@ -1,38 +1,14 @@
 {% extends 'home.html' %}
 
+{% load static %}
+
 {% block content %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-
-    <style>
-        body {
-            background-color: darkseagreen;
-        }
-
-        footer {
-            color: brown;
-            margin-top: 100px;
-        }
-    </style>
-
-<!--      {% load static %}-->
-<!--    <img src="{% static 'logo.png' %}" alt="LingoConnect" width="300" height="200">-->
-
-</head>
-<body>
-    <h2>Register</h2>
-    <form method="post" action="{% url 'register' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
-</body>
-
-<footer>
-    <p id="footer1">LingoConnect Team</p>
-    <p id="footer2">Acıbadem Üniversitesi - İçerenköy, Kayışdağı Cd. No:32, 34752 Ataşehir/İstanbul</p>
-</footer>
-</html>
+    <div class="register-form">
+        <h2>Register</h2>
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
 {% endblock %}

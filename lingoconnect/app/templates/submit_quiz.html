@@ -1,15 +1,106 @@
 {% extends 'home.html' %}
 
 {% block content %}
+    <div class="container">
+        <h1>Quiz Results</h1>
+        <p>Your Score: {{ score }}/10</p>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-{{score}}
-<body>
+        <div class="question-results">
+            <h2>Question 1</h2>
+            <p>Your answer: {{ answer_id1 }}</p>
+            {% if answer_id1 == quiz.q1.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q1.correct_answer }}</p>
+            {% endif %}
+        </div>
 
-</body>
-</html>
+        <!-- Repeat the above structure for each question (2 to 10) using corresponding variables -->
+
+        <!-- Question 2 -->
+        <div class="question-results">
+            <h2>Question 2</h2>
+            <p>Your answer: {{ answer_id2 }}</p>
+            {% if answer_id2 == quiz.q2.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q2.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 3</h2>
+            <p>Your answer: {{ answer_id3 }}</p>
+            {% if answer_id3 == quiz.q3.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q3.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 4</h2>
+            <p>Your answer: {{ answer_id4 }}</p>
+            {% if answer_id4 == quiz.q4.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q4.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 5</h2>
+            <p>Your answer: {{ answer_id5 }}</p>
+            {% if answer_id5 == quiz.q5.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q5.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 6</h2>
+            <p>Your answer: {{ answer_id6 }}</p>
+            {% if answer_id6 == quiz.q6.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q6.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 7</h2>
+            <p>Your answer: {{ answer_id7 }}</p>
+            {% if answer_id7 == quiz.q7.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q7.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 8</h2>
+            <p>Your answer: {{ answer_id8 }}</p>
+            {% if answer_id8 == quiz.q8.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q8.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 9</h2>
+            <p>Your answer: {{ answer_id9 }}</p>
+            {% if answer_id9 == quiz.q9.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q9.correct_answer }}</p>
+            {% endif %}
+        </div>
+                <div class="question-results">
+            <h2>Question 10</h2>
+            <p>Your answer: {{ answer_id10 }}</p>
+            {% if answer_id10 == quiz.q10.correct_answer %}
+                <p class="correct-answer">Correct!</p>
+            {% else %}
+                <p class="incorrect-answer">Incorrect! Correct answer: {{ quiz.q10.correct_answer }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Repeat this block for questions 3 to 10 -->
+
+    </div>
 {% endblock %}

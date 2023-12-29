@@ -1,53 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lingoconnect</title>
-
-    <style>
-      body {
-          background-color: cornsilk
-      }
-      h1 {
-          margin-bottom: 25px
-      }
-     #link1 {
-         margin-right: 10px
-     }
-      #link2 {
-         margin-right: 10px
-     }
-      #link3 {
-         margin-right: 10px
-     }
-      #link4 {
-         margin-right: 10px
-     }
-      #link5 {
-         margin-right: 10px
-     }
-       footer {
-          color: chocolate;
-          margin-top: 350px;
-      }
-    </style>
-
-   {% load static %}
+    {% load static %}
     <img src="{% static 'logo.png' %}" alt="LingoConnect" width="300" height="200">
-
-
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-  <h1> Welcome to lingoconnect </h1>
-  <a href="{% url 'quizes' %}" id=link1> Quizes </a>
-  <a href="{% url 'register' %}" id=link2>Register</a>
-  <a href="{% url 'login' %}" id=link3>Login</a>
-  <a href="{% url 'profile' %}" id=link3>My Profile</a>
-</body>
-   {%block content%} {%endblock content%}
-  <footer>
-    <p id="footer1">LingoConnect Team</p>
-    <p id="footer2">Acıbadem Üniversitesi - İçerenköy, Kayışdağı Cd. No:32, 34752 Ataşehir/İstanbul</p>
-</footer>
 
+    {% include 'navbar.html' %}
+
+    <h1> Welcome to lingoconnect </h1>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p id="footer1">LingoConnect Team</p>
+        <p id="footer2">Acıbadem Üniversitesi - İçerenköy, Kayışdağı Cd. No:32, 34752 Ataşehir/İstanbul</p>
+    </footer>
+
+</body>
 </html>
