@@ -187,7 +187,14 @@ def register(request):
 @login_required
 def user_profile(request):
     current_user = request.user
-    profile_instance = UserProfile.objects.get(user=current_user)
+
+    try:
+        profile_instance = UserProfile.objects.get(user=current_user)
+    except UserProfile.DoesNotExist:
+        return "Please log in"  # Return a string indicating that the user should log in
+
+    # Rest of your view logic...
+
 
     # Retrieve information about completed quizzes
     completed_quizzes = profile_instance.finished_quizzes.all()

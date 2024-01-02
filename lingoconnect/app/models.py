@@ -31,8 +31,11 @@ class UserProfile(models.Model):
        if created:
         user_profile=UserProfile(user=instance)
         user_profile.save()
+
     post_save.connect(create_user_profile,sender=user)
 
+    class Meta:
+        app_label="app"
 
 
 
