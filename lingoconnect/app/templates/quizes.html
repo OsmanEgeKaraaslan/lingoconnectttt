@@ -1,10 +1,17 @@
 <!-- quizes.html -->
-{% extends 'home.html' %}
+
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Quizes</title>
+    {% load static %}
+    <img src="{% static 'logo.png' %}" alt="LingoConnect" width="300" height="200">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+
+    {% include 'navbar.html' %}
+
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>

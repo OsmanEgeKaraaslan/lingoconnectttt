@@ -1,9 +1,17 @@
-{% extends 'home.html' %}
+
 {% block content %}
 <html lang="en">
 <head>
-     {%load static%}
+
     <meta charset="UTF-8">
+
+    {% load static %}
+    <img src="{% static 'logo.png' %}" alt="LingoConnect" width="300" height="200">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+
+    {% include 'navbar.html' %}
+
     <title>{{quiz.name}}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
@@ -53,7 +61,7 @@
 <input type="radio" name="question_{{ quiz.q4.id }}" value="{{quiz.q4.option3}}">
     <label>{{quiz.q4.option3}}</label>
 <input type="radio" name="question_{{ quiz.q4.id }}" value="{{ quiz.q4.option4 }}">
-    <label>{{quiz.q4.option2}}</label>
+    <label>{{quiz.q4.option4}}</label>
 
     <p>{{quiz.q5.text}}</p>
 <input type="radio" name="question_{{ quiz.q5.id }}" value="{{ quiz.q5.option1 }}">

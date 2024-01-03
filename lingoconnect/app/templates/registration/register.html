@@ -1,4 +1,9 @@
-{% extends 'home.html' %}
+    {% load static %}
+    <img src="{% static 'logo.png' %}" alt="LingoConnect" width="300" height="200">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+
+    {% include 'navbar.html' %}
 
 {% load static %}
 
