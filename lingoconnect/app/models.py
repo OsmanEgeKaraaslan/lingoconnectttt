@@ -20,11 +20,7 @@ class UserProfile(models.Model):
         self.false_answers += 10-num_correct
         self.save()
 
-    def calculate_percentage(self):
-      x = self.correct_answers
-      y = self.false_answers
-      self.percentage = x / (x + y) * 100
-      self.save()
+
 
 
     def create_user_profile(sender, instance, created,**kwargs):
@@ -56,7 +52,7 @@ class question(models.Model):
     category=models.CharField(max_length=1500)
     difficulty=models.CharField(max_length=1500)
 
-    fail_percent=models.IntegerField(null=True)
+
     objects = models.Manager()
 class Quiz(models.Model):
     name=models.TextField()
