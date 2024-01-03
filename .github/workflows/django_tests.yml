@@ -27,4 +27,5 @@ jobs:
 
     - name: Run tests
       run: |
+        cd lingoconnect
         python manage.py test

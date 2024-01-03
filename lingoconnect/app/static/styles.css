@@ -18,7 +18,7 @@
 }
 
 .navbar-btn:hover {
-    color: #033000;
+    color: #006400;
     text-shadow: 0 0 5px #888888; /* Adjust the third value for a softer glow */
 }
 .btn {
