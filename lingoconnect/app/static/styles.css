@@ -14,11 +14,11 @@
     text-decoration: none;
     margin-right: 15px;
     cursor: pointer;
-    transition: color 0.3s, text-shadow 0.3s;
+    transition: color 0.3s
 }
 
 .navbar-btn:hover {
-    color: #ffffff;
+    color: #033000;
     text-shadow: 0 0 5px #888888; /* Adjust the third value for a softer glow */
 }
 .btn {
