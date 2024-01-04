@@ -8,10 +8,8 @@ class UserProfile(models.Model):
     total_score = models.IntegerField(default=0)
     correct_answers = models.IntegerField(default=0)
     false_answers = models.IntegerField(default=0)
-    Percentage = models.IntegerField(default=0)
-    def update_score(self, score):
-        self.total_score += score
-        self.save()
+
+
 
     def update_correct_answers(self, num_correct):
         self.correct_answers += num_correct

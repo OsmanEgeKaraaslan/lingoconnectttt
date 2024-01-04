@@ -158,7 +158,7 @@ def submit_quiz(request, quiz_id):
 
     user_profile.update_correct_answers(num_correct=x)
     user_profile.update_false_answers(num_correct=x)
-    user_profile.calculate_percentage()
+
     return render(request, 'submit_quiz.html', {'quiz': quiz,"score":score,"answer_id1":answer_id1,"answer_id2":answer_id2,"answer_id3":answer_id3,"answer_id4":answer_id4,"answer_id5":answer_id5,"answer_id6":answer_id6,"answer_id7":answer_id7,"answer_id8":answer_id8,"answer_id9":answer_id9,"answer_id10":answer_id10})
 def register(request):
     global form
